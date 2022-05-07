@@ -17,7 +17,7 @@ async def on_startup(dp):
 async def on_shutdown(dp):
 	await bot.delete_webhook()
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
 
 @dp.inline_handler()
