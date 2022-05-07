@@ -8,7 +8,7 @@ from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import hashlib, os
 
 print(1)
-URL_APP = 'http://188.225.77.119:443'
+URL_APP = 'https://pomiro.space'
 
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
