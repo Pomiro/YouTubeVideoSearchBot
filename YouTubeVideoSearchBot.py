@@ -11,14 +11,18 @@ def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
 	return res
 
+bot = Bot(token=config.TOKEN)
+dp = Dispatcher(bot)
+
 async def on_startup(dp):
 	await bot.set_webhook(config.URL_APP)
 
 async def on_shutdown(dp):
 	await bot.delete_webhook()
 
-bot = Bot(token=config.TOKEN)
-dp = Dispatcher(bot)
+@dp.inline_handler()
+async def start(message: types.Message):
+	await message.answer('Напиши: @YouTubeVideoSearchBot и название видое')
 
 @dp.inline_handler()
 async def inline_handler(query : types.InlineQuery):
