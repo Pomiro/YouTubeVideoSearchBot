@@ -13,7 +13,7 @@ def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
 	return res
 
-bot = Bot(token=config.TOKEN)
+bot = Bot(config.TOKEN)
 dp = Dispatcher(bot)
 print(2)
 async def on_startup(dp):
