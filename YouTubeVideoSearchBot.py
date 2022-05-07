@@ -1,5 +1,5 @@
 from youtube_search import YoutubeSearch
-from config import TOKEN
+import config
 
 from aiogram import Bot, types, utils
 from aiogram.dispatcher import Dispatcher
