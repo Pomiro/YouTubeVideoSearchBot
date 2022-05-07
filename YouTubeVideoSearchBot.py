@@ -11,13 +11,16 @@ print(1)
 
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
+	print(2)
 	return res
 
 bot = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
 
 async def on_startup(dp):
+	print(3)
 	await bot.set_webhook(config.URL_APP)
+	print(4)
 
 async def on_shutdown(dp):
 	await bot.delete_webhook()
