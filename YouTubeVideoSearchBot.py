@@ -12,7 +12,7 @@ print(1)
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
 	return res
-
+print(11)
 bot = Bot(config.TOKEN)
 dp = Dispatcher(bot)
 print(2)
@@ -51,5 +51,5 @@ executor.start_webhook(
 	on_shutdown=on_shutdown,
 	skip_updates=True,
 	host="127.0.0.1",
-	port=3002
+	port=3003
 	)
