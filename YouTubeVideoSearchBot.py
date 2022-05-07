@@ -7,6 +7,8 @@ from aiogram.utils import executor
 from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import hashlib, os
 
+print(1)
+
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
 	return res
