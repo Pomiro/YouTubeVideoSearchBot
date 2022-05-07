@@ -22,7 +22,7 @@ async def on_shutdown(dp):
 
 @dp.inline_handler()
 async def start(message: types.Message):
-	await message.answer('Напиши: @YouTubeVideoSearchBot и название видое')
+	await message.answer('Напиши: @YouTubeVideoSearchBot и название видео')
 
 @dp.inline_handler()
 async def inline_handler(query : types.InlineQuery):
@@ -46,6 +46,6 @@ executor.start_webhook(
 	on_startup=on_startup,
 	on_shutdown=on_shutdown,
 	skip_updates=True,
-	host="localhost",
+	host="127.0.0.1",
 	port=3001
 	)
