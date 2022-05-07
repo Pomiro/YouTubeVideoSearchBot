@@ -8,6 +8,7 @@ from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import hashlib, os
 
 print(1)
+URL_APP = 'https://188.225.77.119:443'
 
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
@@ -18,7 +19,7 @@ dp = Dispatcher(bot)
 print(2)
 async def on_startup(dp):
 	print(3)
-	await bot.set_webhook(config.URL_APP)
+	await bot.set_webhook(URL_APP)
 	print(4)
 
 async def on_shutdown(dp):
