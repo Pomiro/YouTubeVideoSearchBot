@@ -8,7 +8,6 @@ from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import hashlib, os
 
 print(1)
-URL_APP = 'https://pomiro.space'
 
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
@@ -19,7 +18,7 @@ dp = Dispatcher(bot)
 print(2)
 async def on_startup(dp):
 	print(3)
-	await bot.set_webhook(URL_APP)
+	await bot.set_webhook(config.URL_APP)
 	print(4)
 
 async def on_shutdown(dp):
@@ -51,6 +50,6 @@ executor.start_webhook(
 	on_startup=on_startup,
 	on_shutdown=on_shutdown,
 	skip_updates=True,
-	host="127.0.0.1",
-	port=3000
+	host="0.0.0.0",
+	port=int(os.version.get("PORT", 5000))
 	)
