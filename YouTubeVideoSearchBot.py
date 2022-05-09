@@ -26,8 +26,9 @@ async def on_shutdown(dp):
 
 @dp.inline_handler()
 async def start(message: types.Message):
+	print(5)
 	await message.answer('Напиши: @YouTubeVideoSearchBot и название видео')
-
+print(6)
 @dp.inline_handler()
 async def inline_handler(query : types.InlineQuery):
 	text = query.query or 'echo'
