@@ -24,26 +24,26 @@ print(2)
 # async def on_shutdown(dp):
 # 	await bot.delete_webhook()
 
-@dp.inline_handler()
-async def start(message: types.Message):
-	print(5)
-	await message.answer('LOL')
-print(6)
 # @dp.inline_handler()
-# async def inline_handler(query : types.InlineQuery):
-# 	text = query.query or 'echo'
-# 	links = searcher(text)
+# async def start(message: types.Message):
+# 	print(5)
+# 	await message.answer('LOL')
+# print(6)
+@dp.inline_handler()
+async def inline_handler(query : types.InlineQuery):
+	text = query.query or 'echo'
+	links = searcher(text)
 
-# 	articles = [types.InlineQueryResultArticle(
-# 		id = hashlib.md5(f'{link["id"]}'.encode()).hexdigest(),
-# 		title = f'{link["title"]}',
-# 		url = f'https://www.youtube.com/watch?v={link["id"]}',
-# 		thumb_url = f'{link["thumbnails"][0]}',
-# 		input_message_content=types.InputTextMessageContent(
-# 			message_text=f'https://www.youtube.com/watch?v={link["id"]}')
-# 	) for link in links]
+	articles = [types.InlineQueryResultArticle(
+		id = hashlib.md5(f'{link["id"]}'.encode()).hexdigest(),
+		title = f'{link["title"]}',
+		url = f'https://www.youtube.com/watch?v={link["id"]}',
+		thumb_url = f'{link["thumbnails"][0]}',
+		input_message_content=types.InputTextMessageContent(
+			message_text=f'https://www.youtube.com/watch?v={link["id"]}')
+	) for link in links]
 
-# 	await query.answer(articles, cache_time=60, is_personal=True)
+	await query.answer(articles, cache_time=60, is_personal=True)
 
 executor.start_polling(dp, skip_updates=True)
 
