@@ -7,28 +7,19 @@ from aiogram.utils import executor
 from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import hashlib, os
 
-print(1)
-
 def searcher(text):
 	res = YoutubeSearch(text, max_results=10).to_dict()
 	return res
-print(11)
+
 bot = Bot(token = config.TOKEN)
 dp = Dispatcher(bot)
-print(2)
+
 async def on_startup(dp):
-	print(3)
 	await bot.set_webhook(config.URL_APP)
-	print(4)
 
 async def on_shutdown(dp):
 	await bot.delete_webhook()
 
-# @dp.inline_handler()
-# async def start(message: types.Message):
-# 	print(5)
-# 	await message.answer('LOL')
-# print(6)
 @dp.inline_handler()
 async def inline_handler(query : types.InlineQuery):
 	text = query.query or 'echo'
