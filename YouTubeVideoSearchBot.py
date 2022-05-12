@@ -36,7 +36,7 @@ async def inline_handler(query : types.InlineQuery):
 
 	await query.answer(articles, cache_time=60, is_personal=True)
 
-executor.start_polling(dp, skip_updates=True)
+#executor.start_polling(dp, skip_updates=True)
 
 executor.start_webhook(
 	dispatcher=dp,
