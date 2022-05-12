@@ -36,7 +36,7 @@ async def inline_handler(query : types.InlineQuery):
 
 	await query.answer(articles, cache_time=60, is_personal=True)
 
-executor.start_polling(dp, skip_updates=True)
+#executor.start_polling(dp, skip_updates=True)
 
 executor.start_webhook(
 	dispatcher=dp,
@@ -44,6 +44,6 @@ executor.start_webhook(
 	on_startup=on_startup,
 	on_shutdown=on_shutdown,
 	skip_updates=True,
-	host="0.0.0.0",
-	port=int(os.environ.get("PORT", 5000))
+	host="localhost",
+	port=3001
 	)
