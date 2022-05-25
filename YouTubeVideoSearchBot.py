@@ -14,6 +14,13 @@ def searcher(text):
 bot = Bot(token = config.TOKEN)
 dp = Dispatcher(bot)
 
+WEBHOOK_HOST = 'pomiro.space'
+WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
+WEBHOOK_LISTEN = '0.0.0.0'  # In some VPS you may need to put here the IP addr
+
+WEBHOOK_URL_BASE = "https://{}:{}".format(WEBHOOK_HOST, WEBHOOK_PORT)
+WEBHOOK_URL_PATH = "/{}/".format(config.TOKEN)
+
 async def on_startup(dp):
 	await bot.set_webhook(config.URL_APP)
 
@@ -36,7 +43,9 @@ async def inline_handler(query : types.InlineQuery):
 
 	await query.answer(articles, cache_time=60, is_personal=True)
 
-#executor.start_polling(dp, skip_updates=True)
+
+
+# executor.start_polling(dp, skip_updates=True)
 
 executor.start_webhook(
 	dispatcher=dp,
@@ -44,6 +53,6 @@ executor.start_webhook(
 	on_startup=on_startup,
 	on_shutdown=on_shutdown,
 	skip_updates=True,
-	host="localhost",
+	host="0.0.0.0",
 	port=3001
 	)
